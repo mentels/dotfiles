@@ -1,0 +1,12 @@
+auto-save-list/
+edts/
+elpa/
+image-dired/
+url/
+custom-packages/
+tramp
+%*
+*.dat
+smex-items
+ido.last
+bookmarks
