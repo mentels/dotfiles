@@ -1,0 +1,12 @@
+{ok, [Home]} = init:get_argument(home),
+ErlLibsDir = filename:join([Home, ".erl_libs"]),
+[begin
+     %% Starting erl with -erl_libs flag prints the info
+     case init:get_argument(erl_libs) of
+         {ok, _} ->
+             io:format("Loading lib: ~p~n", [D]);
+         _ ->
+             ok
+     end,
+     true = code:add_pathz(filename:join(D, "ebin"))
+ end || D <- filelib:wildcard(filename:join(ErlLibsDir, "*")), filelib:is_dir(D)].
