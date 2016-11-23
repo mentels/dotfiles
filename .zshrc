@@ -89,3 +89,6 @@ alias dps="docker ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
 eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
