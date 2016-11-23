@@ -1,5 +1,6 @@
-ERL_DEFAULT_INSTALL_DIR=/usr/lib/erlang
 KERL_INSTALL_HTMLDOCS=yes
-KERL_DEFAULT_INSTALL_DIR="$KERL_BASE_DIR/installs"
+KERL_DEFAULT_INSTALL_DIR=${KERL_BASE_DIR}/installs
 KERL_INSTALL_MANPAGES=yes
-KERL_CONFIGURE_OPTIONS="--enable-debug --enable-unicode --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-smp-support --enable-threads --enable-kernel-poll --with-wx --with-ssl"
+# KERL_CONFIGURE_OPTIONS="--enable-debug --enable-unicode --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-smp-support --enable-threads --enable-kernel-poll --with-wx --with-ssl" 
+## ON MAC
+KERL_CONFIGURE_OPTIONS="--enable-debug --enable-unicode --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-smp-support --enable-threads --enable-kernel-poll --with-wx --with-ssl=/usr/local/opt/openssl"
