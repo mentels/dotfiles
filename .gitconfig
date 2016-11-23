@@ -1,5 +1,9 @@
 [include]
-        path = user
+        path = ~/.gituser
+        # example contents of ~/.gituser
+        # [user]
+        # name = "Alice Ecila"
+        # email = "alice.eclie@domain.com"
 [core]
         editor = emacs
 [alias]
