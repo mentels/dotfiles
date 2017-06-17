@@ -84,7 +84,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dps="docker ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
 
-. /Users/szymonmentel/.kerl/installs/19.1.wx/activate
+. /Users/szymonmentel/.kerl/installs/19.2-wx/activate
+
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
+. /Users/szymonmentel/.kiex/elixirs/elixir-1.4.2.env
 
 eval "$(direnv hook zsh)"
 
