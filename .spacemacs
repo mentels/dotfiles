@@ -312,6 +312,13 @@ you should place your code here."
    (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
    (setq scroll-step 1) ;; keyboard scroll one line at a time
+   ;; Improve the alchemist mode
+   (setq alchemist-goto-erlang-source-dir "~/.kerl/builds/19.2-wx/otp_src_19.2/")
+   (setq alchemist-goto-elixir-source-dir "~/.kiex/builds/elixir-git/")
+   (defun custom-erlang-mode-hook ()
+     (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
+
+   (add-hook 'erlang-mode-hook 'custom-erlang-mode-hook)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
