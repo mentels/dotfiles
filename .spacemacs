@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     go
+     elm
      ansible
      python
      sql
@@ -58,10 +60,12 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      spell-checking
-     syntax-checking
+     (syntax-checking :variables syntax-checking-enable-by-default nil)
      osx
      docker
      ansible
+     themes-megapack
+     csharp
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -304,7 +308,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default mac-right-option-modifier nil)
-  (require 'helm-bookmark)
   )
 
 (defun dotspacemacs/user-config ()
@@ -315,26 +318,28 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
    ;; scroll one line at a time (less "jumpy" than defaults)
-   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-   (setq scroll-step 1) ;; keyboard scroll one line at a time
-   ;; Improve the alchemist mode
-   (setq alchemist-goto-erlang-source-dir "~/.kerl/builds/20.0/otp_src_20.0/")
-   (setq alchemist-goto-elixir-source-dir "~/.kiex/builds/elixir-git/")
-   (defun custom-erlang-mode-hook ()
-     (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
+  (require 'helm-bookmark)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+  (setq scroll-step 1) ;; keyboard scroll one line at a time
+  ;; Improve the alchemist mode
+  (setq alchemist-goto-erlang-source-dir "~/.kerl/builds/20.0/otp_src_20.0/")
+  (setq alchemist-goto-elixir-source-dir "~/.kiex/builds/elixir-git/")
+  (defun custom-erlang-mode-hook ()
+    (define-key erlang-mode-map (kbd "M-,") 'alchemist-goto-jump-back))
 
-   (add-hook 'erlang-mode-hook 'custom-erlang-mode-hook)
+  (add-hook 'erlang-mode-hook 'custom-erlang-mode-hook)
 
-   (setq-default evil-surround-pairs-alist
-                 (cons '(?{ . ("{" . "}"))
-                          (cons '(?[ . ("[" . "]"))
-                                   (cons '(?( . ("(" . ")"))
-                                            evil-surround-pairs-alist))))
+  (setq-default evil-surround-pairs-alist
+                (cons '(?{ . ("{" . "}"))
+                      (cons '(?[ . ("[" . "]"))
+                               (cons '(?( . ("(" . ")"))
+                                        evil-surround-pairs-alist))))
 
    (setq-default dotspacemacs-auto-resume-layouts t)
 
+   (setq web-mode-markup-indent-offset 2)
    ;; IN PROGRESS
    (setq helm-ag-use-agignore t)
    (setq grep-find-ignored-directories '("ct_report"))

@@ -14,5 +14,8 @@
         hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
         type = cat-file -t
         dump = cat-file -p
+	      conflicts = diff --name-only --diff-filter=U
 [merge "ours"]
 	driver = true
+[magit]
+	hideCampaign = true

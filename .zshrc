@@ -54,6 +54,8 @@ plugins=(git colored-man github pip py brew osx zsh-syntax-highlighting)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/texlive/2016/bin/x86_64-darwin/"
+export PATH=$PATH:"/Users/szymonmentel/Library/Python/2.7/bin/"
+export PATH=$PATH:"/usr/local/share/dotnet"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,15 +85,28 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dps="docker ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
+alias dc="docker-compose"
+alias dcps="docker-compose ps"
 
-. /Users/szymonmentel/.kerl/installs/19.2-wx/activate
+# . /Users/szymonmentel/.kerl/installs/19.2-wx/activate
+. /Users/szymonmentel/.kerl/installs/21.0/activate
 
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
-. /Users/szymonmentel/.kiex/elixirs/elixir-1.4.2.env
+source $HOME/.kiex/elixirs/elixir-1.7.2.env
 
 eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
+
+alias edps150="edocker150 ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
+alias edps140="edocker140 ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
+alias edocker150="docker -H 10.100.0.150"
+alias edocker140="docker -H 10.100.0.140"
+
+alias curl_post_json="curl -X POST -H \"Content-Type: application/json\""
+alias curl_post_text_plain="curl -X POST -H \"Content-Type: text/plain\""
