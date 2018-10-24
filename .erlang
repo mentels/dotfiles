@@ -13,13 +13,13 @@ MaybeLog = fun(Lib, LibDir1, LibDir2) ->
      OldPath = filename:join(D, "ebin"),
      NewPath = filename:join([D, "_build", "prod", "lib", filename:basename(D), "ebin"]),
      MaybeLog(D, OldPath, NewPath),
-          case {filelib:is_dir(OldPath), filelib:is_dir(NewPath)} of
-              {true, _} ->
-                  code:add_pathz(OldPath);
-              {_, true} ->
-                  code:add_pathz(NewPath);
-              {_, _} ->
-                  io:format("Filed loading lib: ~p~n", [D])
+     case {filelib:is_dir(OldPath), filelib:is_dir(NewPath)} of
+         {true, _} ->
+             code:add_pathz(OldPath);
+         {_, true} ->
+             code:add_pathz(NewPath);
+         {_, _} ->
+             io:format("Failed loading lib: ~p~n", [D])
      end
  end || D <- filelib:wildcard(filename:join(ErlLibsDir, "*")), filelib:is_dir(D)].
 
@@ -28,7 +28,7 @@ MaybeLog = fun(Lib, LibDir1, LibDir2) ->
 proplists:is_defined(noshell, init:get_arguments()) == false andalso begin
     %% Depending on the install method DocshBase0 definition is rewritten
     %% with sed or kept intact.
-    DocshBase0 = "$DOCSH_BASE",
+    DocshBase0 = "/Users/szymonmentel/opt/docsh",
     NextStep = case {code:ensure_loaded(docsh), DocshBase0, os:getenv("DOCSH_BASE")} of
         {{module, docsh}, _, _} ->
             %% The code path already contains docsh.

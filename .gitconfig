@@ -1,20 +1,20 @@
 [include]
-        path = ~/.gituser
-        # example contents of ~/.gituser
-        # [user]
-        # name = "Alice Ecila"
-        # email = "alice.eclie@domain.com"
+	path = ~/.gituser
+	# example contents of ~/.gituser
+	# [user]
+	# name = "Alice Ecila"
+	# email = "alice.eclie@domain.com"
 [core]
         editor = emacs
 [alias]
-        co = checkout
-        ci = commit
-        st = status
-        br = branch
-        hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-        type = cat-file -t
-        dump = cat-file -p
-	      conflicts = diff --name-only --diff-filter=U
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	conflicts = diff --name-only --diff-filter=U
 [merge "ours"]
 	driver = true
 [magit]

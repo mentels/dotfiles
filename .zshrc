@@ -53,9 +53,9 @@ plugins=(git colored-man github pip py brew osx zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/texlive/2016/bin/x86_64-darwin/"
-export PATH=$PATH:"/Users/szymonmentel/Library/Python/2.7/bin/"
-export PATH=$PATH:"/usr/local/share/dotnet"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
+export PATH=$PATH:"/Users/szymonmentel/bin"
+export PATH=$PATH:"/Library/TeX/texbin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,17 +88,26 @@ alias dps="docker ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
 alias dc="docker-compose"
 alias dcps="docker-compose ps"
 
-# . /Users/szymonmentel/.kerl/installs/19.2-wx/activate
-. /Users/szymonmentel/.kerl/installs/21.0/activate
+# Erlang
+ERL_VER=21.1
+. /Users/szymonmentel/.kerl/installs/$ERL_VER/activate
+alias erl_doc="open ~/.kerl/installs/$ERL_VER/html/index.html"
+export ERL_AFLAGS="-kernel shell_history enabled"
 
+# Elixir
+EX_VER=1.7.3
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
-source $HOME/.kiex/elixirs/elixir-1.7.2.env
+source $HOME/.kiex/elixirs/elixir-$EX_VER.env
+alias ex_doc="mix hex.docs online elixir $EX_VER"
+
+# Learn
+alias kb="open -a \"Google Chrome\" ~/learn/knowledge_base/readme.md"
+alias til="open -a \"Google Chrome\" ~/learn/til/README.md"
 
 eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export ERL_AFLAGS="-kernel shell_history enabled"
 
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
