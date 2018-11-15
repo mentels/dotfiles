@@ -104,6 +104,8 @@ alias ex_doc="mix hex.docs online elixir $EX_VER"
 alias kb="open -a \"Google Chrome\" ~/learn/knowledge_base/readme.md"
 alias til="open -a \"Google Chrome\" ~/learn/til/README.md"
 
+LESS=-Ri
+
 eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
