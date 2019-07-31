@@ -89,7 +89,7 @@ alias dc="docker-compose"
 alias dcps="docker-compose ps"
 
 # Erlang
-ERL_VER=21.1
+ERL_VER=22.0
 . /Users/szymonmentel/.kerl/installs/$ERL_VER/activate
 alias erl_doc="open ~/.kerl/installs/$ERL_VER/html/index.html"
 alias erl_doc_ref="open ~/.kerl/installs/$ERL_VER//lib/doc/reference_manual/users_guide.html"
@@ -99,7 +99,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export ERL_LIBS="/Users/szymonmentel/opt/erl_libs/recon:/Users/szymonmentel/opt/erl_libs/erlang_term/_build/prod/lib/erlang_term/"
 
 # Elixir
-EX_VER=1.7.4
+EX_VER=1.8.2
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
 source $HOME/.kiex/elixirs/elixir-$EX_VER.env
 alias ex_doc="mix hex.docs online elixir $EX_VER"

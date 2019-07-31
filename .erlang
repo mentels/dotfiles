@@ -1,6 +1,8 @@
 %% BEGIN: docsh
 
-proplists:is_defined(noshell, init:get_arguments()) == false andalso begin
+%% noshell doesn't work for rebar3 shell
+proplists:is_defined(noshell, init:get_arguments()) == false andalso
+begin
     %% Depending on the install method DocshBase0 definition is rewritten
     %% with sed or kept intact.
     DocshBase0 = "/Users/szymonmentel/opt/erl_libs/docsh",
