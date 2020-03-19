@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/szymonmentel/.oh-my-zsh
+export ZSH=/Users/mentels/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,13 +49,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man github pip py brew osx zsh-syntax-highlighting)
+plugins=(git github pip brew osx)
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-export PATH=$PATH:"/Users/szymonmentel/bin"
+export PATH=$PATH:"/Users/mentels/bin"
 export PATH=$PATH:"/Library/TeX/texbin/"
+export PATH=/Users/mentels/.cache/rebar3/bin:$PATH
+export PATH=/Users/mentels/Library/Python/2.7/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,24 +91,25 @@ alias dc="docker-compose"
 alias dcps="docker-compose ps"
 
 # Erlang
-ERL_VER=22.0
-. /Users/szymonmentel/.kerl/installs/$ERL_VER/activate
+ERL_VER=22.1
+. /Users/mentels/.kerl/installs/$ERL_VER/activate
 alias erl_doc="open ~/.kerl/installs/$ERL_VER/html/index.html"
 alias erl_doc_ref="open ~/.kerl/installs/$ERL_VER//lib/doc/reference_manual/users_guide.html"
 alias erl_doc_apps="open ~/.kerl/installs/$ERL_VER/lib/doc/applications.html"
 alias erl_doc_mods="open ~/.kerl/installs/$ERL_VER/lib/doc/man_index.html"
 export ERL_AFLAGS="-kernel shell_history enabled"
-export ERL_LIBS="/Users/szymonmentel/opt/erl_libs/recon:/Users/szymonmentel/opt/erl_libs/erlang_term/_build/prod/lib/erlang_term/"
+export ERL_LIBS="/Users/mentels/opt/erl_libs/recon:/Users/mentels/opt/erl_libs/erlang_term/_build/prod/lib/erlang_term/"
 
 # Elixir
-EX_VER=1.8.2
+EX_VER=1.9.4
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
 source $HOME/.kiex/elixirs/elixir-$EX_VER.env
 alias ex_doc="mix hex.docs online elixir $EX_VER"
 
-# Learn
+# Learn & config
 alias kb="open -a \"Google Chrome\" ~/learn/knowledge_base/readme.md"
 alias til="open -a \"Google Chrome\" ~/learn/til/README.md"
+alias mac_config "open -a \"Google Chrome\" https://gist.github.com/mentels/1334e355643d47f8789da973ffa05b03"
 
 LESS=-Ri
 
