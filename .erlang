@@ -1,11 +1,8 @@
-%% BEGIN: docsh
-
-%% noshell doesn't work for rebar3 shell
-proplists:is_defined(noshell, init:get_arguments()) == false andalso
-begin
+%% If running an interactive shell
+proplists:is_defined(noshell, init:get_arguments()) == false andalso begin
     %% Depending on the install method DocshBase0 definition is rewritten
     %% with sed or kept intact.
-    DocshBase0 = "/Users/szymonmentel/opt/erl_libs/docsh",
+    DocshBase0 = "/Users/mentels/opt/docsh",
     NextStep = case {code:ensure_loaded(docsh), DocshBase0, os:getenv("DOCSH_BASE")} of
         {{module, docsh}, _, _} ->
             %% The code path already contains docsh.
@@ -50,5 +47,3 @@ begin
             end
     end
 end.
-
-%% END: docsh
