@@ -6,6 +6,10 @@
 	# email = "alice.eclie@domain.com"
 [core]
         editor = "code --wait"
+[commit]
+		gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
 [alias]
 	co = checkout
 	ci = commit

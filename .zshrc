@@ -101,7 +101,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export ERL_LIBS="/Users/mentels/opt/erl_libs/recon:/Users/mentels/opt/erl_libs/erlang_term/_build/prod/lib/erlang_term/"
 
 # Elixir
-EX_VER=1.10.2
+EX_VER=1.10.3
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
 source $HOME/.kiex/elixirs/elixir-$EX_VER.env
 alias ex_doc="mix hex.docs online elixir $EX_VER"
@@ -120,6 +120,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
+export LC_ALL
 
 alias edps150="edocker150 ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
 alias edps140="edocker140 ps --format 'table {{.ID}} {{.Names}} {{.Image}} {{.Ports}}'"
@@ -128,3 +129,9 @@ alias edocker140="docker -H 10.100.0.140"
 
 alias curl_post_json="curl -X POST -H \"Content-Type: application/json\""
 alias curl_post_text_plain="curl -X POST -H \"Content-Type: text/plain\""
+
+# make it possible to sign git commit with gpg
+export GPG_TTY=$(tty)
+
+# for managing python version with PyEnv: https://www.chrisjmendez.com/2017/08/03/installing-multiple-versions-of-python-on-your-mac-using-homebrew/
+eval "$(pyenv init -)"
